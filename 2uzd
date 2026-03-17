@@ -1,0 +1,4 @@
+Get-Process | 
+Where-Object { $_.WorkingSet64 -gt 150MB -and $_.ProcessName -ne "msedge" } | 
+Select-Object @{Name="Name"; Expression={$_.ProcessName}}, Id, @{Name="WorkingSet"; Expression={$_.WorkingSet64}} | 
+Export-Csv -Path "$HOME\Documents\LielieProcesi.csv" -NoTypeInformation -Encoding UTF8
