@@ -1,6 +1,0 @@
-$path = Join-Path $HOME "Documents\Warnings.txt"
-$warnings = Get-EventLog -LogName Application -EntryType Warning -After (Get-Date).AddDays(-3)
-$content = $warnings | Select-Object TimeGenerated, Source, EventID, Message | Out-String
-$content += "`n Top 3 brīdinājumu avoti`n"
-$content += $warnings | Group-Object Source | Sort-Object Count -Descending | Select-Object -First 3 Count, Name | Out-String
-$content | Out-File -FilePath $path -Force -Encoding UTF8
