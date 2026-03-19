@@ -1,3 +1,0 @@
-$msStoreApps = winget list --source msstore
-$count = ($msStoreApps | Measure-Object).Count
-Write-Host "Sistēmā ir instalētas $count aplikācijas no Microsoft Store."
